@@ -16,11 +16,19 @@ pool:
 #   buildConfiguration: 'Release'
 
 steps:
-- task: DotNetCoreCLI@2
-  displayName: Restore
+# - task: DotNetCoreCLI@2
+#   displayName: Restore
+#   inputs:
+#     command: restore
+#     projects: '$(Parameters.RestoreBuildProjects)'
+
+# steps:
+- task: UseDotNet@2
+  displayName: 'Use .NET Core sdk'
   inputs:
-    command: restore
-    projects: '$(Parameters.RestoreBuildProjects)'
+    packageType: sdk
+    version: 3.1.402
+    installationPath: $(Agent.ToolsDirectory)/dotnet
 
 - task: SonarSource.sonarqube.15B84CA1-B62F-4A2A-A403-89B77A063157.SonarQubePrepare@5
   displayName: 'Prepare analysis on SonarQube'
