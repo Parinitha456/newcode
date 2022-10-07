@@ -36,8 +36,8 @@ steps:
     SonarQube: 'demoproject-sq'
     scannerMode: CLI
     configMode: manual
-    cliProjectKey: demoproject
-    cliProjectName: demoproject
+    cliProjectKey: 'demoproject'
+    cliProjectName: 'demoproject'
   timeoutInMinutes: 10
 
 - task: SonarSource.sonarqube.6D01813A-9589-4B15-8491-8164AEB38055.SonarQubeAnalyze@5
